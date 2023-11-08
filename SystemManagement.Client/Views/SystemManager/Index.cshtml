@@ -1,0 +1,39 @@
+﻿@{
+    ViewBag.Title = "مدیریت سیستم ها";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section head
+{
+    <link href="~/DX.ashx?cssfile=~/Views/SystemManager/Css/Index.min.css" rel="Stylesheet" />
+}
+@section scripts
+{
+    <script src="~/DX.ashx?jsfile=~/Views/SystemManager/JS/Index.js"></script>
+}
+
+<div class="row">
+    <div class="col-xs-12 col-md-3">
+        <section class="app__section">
+            <div class="app__section__header">
+                ثبت  سیستم جدید 
+            </div>
+            <div class="app__section__body">
+                @{ Html.RenderPartial("~/Views/SystemManager/AddForm/AddForm.cshtml"); }
+            </div>
+        </section>
+    </div>
+    <div class="col-xs-12 col-md-9">
+        <section class="app__section">
+            <div class="app__section__header">
+                لیست
+                @{ Html.RenderPartial("~/Views/Shared/Partials/_AppSectionSettings.cshtml"); }
+            </div>
+            <div class="app__section__body">
+
+                <form class="app__grid-wrapper" id="gridParent">
+                    @{Html.RenderAction("Grid", "SystemManager");}
+                </form>
+            </div>
+        </section>
+    </div>
+</div>

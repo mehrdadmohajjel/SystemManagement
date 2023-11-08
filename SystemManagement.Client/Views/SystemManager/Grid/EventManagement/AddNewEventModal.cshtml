@@ -1,0 +1,75 @@
+﻿<div class="row">
+    <div class="filter-form">
+        <div class="row" >
+            <div class="col-xs-12 col-md-6 col-lg-6">
+                <div class="app__form-item">
+                    <label class="app__form-label">
+                        نام رویداد
+                    </label>
+                    <div id="addFormTitleParent">
+                        @Html.DevExpress().TextBox(settings =>
+                        {
+                            settings.Name = "addEventTitle";
+                            settings.Properties.NullText = "نام رویداد را وارد کنید";
+                            settings.Properties.ClientSideEvents.ValueChanged =
+                                "motorsazanClient.systemManager.handleAddEventTitleValueChanged";
+                        }).GetHtml()
+                    </div>
+                    <div class="app__form-error app__hide" id="addEventTitleError">
+                        نام رویداد وارد نشده است
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-6 col-lg-6">
+                <div class="app__form-item">
+                    <label class="app__form-label">
+                        کد رویداد
+                    </label>
+                    <div id="addFormCodeParent">
+                        @Html.DevExpress().TextBox(settings =>
+                        {
+                            settings.Name = "addEventCode";
+                            settings.Properties.NullText = "کد رویداد را وارد کنید";
+                            settings.Properties.CaptionCellStyle.Width = Unit.Pixel(100);
+                            settings.Properties.MaskSettings.Mask = "000";
+                            settings.Properties.MaskSettings.ErrorText = "فرمت کد را رعایت کنید";
+                            settings.Properties.ValidationSettings.Display = Display.Dynamic;
+                            settings.Properties.MaskSettings.IncludeLiterals = MaskIncludeLiteralsMode.DecimalSymbol;
+                            settings.Properties.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.ImageWithText;
+                            settings.Properties.ValidationSettings.ErrorTextPosition =ErrorTextPosition.Bottom;
+
+                            settings.Properties.ClientSideEvents.ValueChanged =
+                                "motorsazanClient.systemManager.handleAddEventCodeValueChanged";
+                        }).GetHtml()
+                    </div>
+                    <div class="app__form-error app__hide" id="addEventCodeError">
+                        کد رویداد وارد نشده است
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-12 col-lg-12 filter-form__action-wrapper">
+                @Html.DevExpress().Button(settings =>
+                {
+                    settings.Name = "addEventtoFormmSaveBtn";
+                    settings.Text = "ثبت";
+                    settings.UseSubmitBehavior = false;
+                    settings.EnableClientSideAPI = true;
+                    settings.Styles.CssPostfix = "add-form__btn";
+                    settings.Width = Unit.Percentage(100);
+                    settings.ClientSideEvents.Click =
+                        "motorsazanClient.systemManager.handleAssignEventToFormBtn";
+                }).GetHtml()
+            </div>
+            <div class="col-xs-12 col-md-12 col-lg-12 filter-form__action-wrapper">
+                <form class="app__grid-wrapper" id="formEventGridParent">
+                    @{
+                        var formId = (long)ViewData["formId"];
+                        Html.RenderAction("SystemFormEventGird", new { formId = formId });
+                    }
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

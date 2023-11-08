@@ -1,0 +1,38 @@
+﻿    <div class="row">
+        <div class="col-xs-12 col-md-12 col-lg-12">
+            <div class="app__form-item">
+                <label class="app__form-label">
+                    نام سیستم
+                </label>
+                <div id="addFormSystemNameParent">
+                    @Html.DevExpress().TextBox(settings =>
+                    {
+                        settings.Name = "addFormSystemName";
+                        settings.Properties.NullText = "نام سیستم را وارد کنید";
+                        settings.Properties.ClientSideEvents.ValueChanged =
+                            "motorsazanClient.systemManager.handleAddFormSystemNameValueChanged";
+                    }).GetHtml()
+
+                </div>
+                <div class="app__form-error app__hide" id="addFormFormSystemNameError">
+                    نام سیستم وارد نشده است
+                </div>
+
+            </div>
+        </div>
+        
+        <div class="col-xs-12 col-md-12 col-lg-12 filter-form__action-wrapper">
+            @Html.DevExpress().Button(settings =>
+            {
+                settings.Name = "addPeopleSaveBtn";
+                settings.Text = "ثبت";
+                settings.UseSubmitBehavior = false;
+                settings.EnableClientSideAPI = true;
+                settings.Styles.CssPostfix = "add-form__btn";
+                settings.Width = Unit.Percentage(100);
+                settings.ClientSideEvents.Click =
+                    "motorsazanClient.systemManager.addNewSystem";
+            }).GetHtml()
+        </div>
+        
+    </div>

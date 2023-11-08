@@ -1,0 +1,127 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SystemManagement.Api</name>
+    </assembly>
+    <members>
+        <member name="M:SystemManagement.Api.Controllers.SampleController.AddSomething(SystemManagement.Shared.Models.Input.Sample.InputAddWithReturnMessage)">
+            <summary>
+            ثبت به همراه بررسی پیغام خطای اعتبارسنجی سمت پروسیجر
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SystemManagement.Api.Controllers.SampleController.ChangeSomethingWithoutInput">
+            <summary>
+             ثبت بدون ورودی 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SystemManagement.Api.Controllers.SampleController.GetAll">
+            <summary>
+            دریافت لیست همه
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SystemManagement.Api.Controllers.SampleController.GetByInput(SystemManagement.Shared.Models.Input.Sample.InputGetByInput)">
+            <summary>
+            دریافت با ورودی
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SystemManagement.Api.Controllers.SystemManagerController.AddNewSystem(SystemManagement.Shared.Models.Input.SystemManager.InputAddNewSystem)">
+             <summary>
+            ثبت سیستم جدید
+             </summary>
+             <param name="input"></param>
+             <returns></returns>
+        </member>
+        <member name="M:SystemManagement.Api.Controllers.SystemManagerController.AssignFormToSystem(SystemManagement.Shared.Models.Input.SystemManager.InputAssignFormToSystem)">
+             <summary>
+            ثبت فرم جدید
+             </summary>
+             <param name="input"></param>
+             <returns></returns>
+        </member>
+        <member name="M:SystemManagement.Api.Controllers.SystemManagerController.AssignEventToForm(SystemManagement.Shared.Models.Input.SystemManager.InputAssignEventToForm)">
+             <summary>
+            ثبت رویداد جدید
+             </summary>
+             <param name="input"></param>
+             <returns></returns>
+        </member>
+        <member name="M:SystemManagement.Api.Controllers.SystemManagerController.EditSystem(SystemManagement.Shared.Models.Input.SystemManager.InputEditSystem)">
+             <summary>
+            ویرایش سیستم جدید
+             </summary>
+             <param name="input"></param>
+             <returns></returns>
+        </member>
+        <member name="M:SystemManagement.Api.Controllers.SystemManagerController.ChangeSystemStatus(SystemManagement.Shared.Models.Input.SystemManager.InputChangeSystemStatus)">
+            <summary>
+               تغییر وضعیت
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SystemManagement.Api.Controllers.SystemManagerController.ChangeSystemFormStatus(SystemManagement.Shared.Models.Input.SystemManager.InputChangeSystemFormStatus)">
+            <summary>
+               تغییر وضعیت
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SystemManagement.Api.Controllers.SystemManagerController.GetAllSystemList">
+            <summary>
+                دریافت لسیت سیستم ها
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SystemManagement.Api.Controllers.SystemManagerController.GetSystemFormsBySystemId(SystemManagement.Shared.Models.Input.SystemManager.InputGetSystemFormsBySystemId)">
+            <summary>
+                دریافت لسیت فرم های سیستم
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SystemManagement.Api.Controllers.SystemManagerController.GetFormEventByFormId(SystemManagement.Shared.Models.Input.SystemManager.InputGetFormEventByFormId)">
+            <summary>
+                دریافت لسیت رویداد های سیستم
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SystemManagement.Api.Controllers.SystemManagerController.ChangeFormEventStatus(SystemManagement.Shared.Models.Input.SystemManager.InputChangeFormEventStatus)">
+            <summary>
+               تغییر وضعیت
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="T:SystemManagement.Api.Utilities.QueryResultExtensions">
+            <summary>
+            Contains extension methods of QueryResult type
+            </summary>
+        </member>
+        <member name="M:SystemManagement.Api.Utilities.QueryResultExtensions.ToOutput``1(SystemManagement.Api.Models.Base.QueryResult)">
+            <summary>
+            Extension method that converts QueryResult to a TOutput
+            </summary>
+            <typeparam name="TOutput">Target class of conversion</typeparam>
+            <param name="queryResult">Source class of conversion</param>
+            <returns></returns>
+        </member>
+        <member name="T:SystemManagement.Api.Utilities.SqlParameterExtensions">
+            <summary>
+            Contains extension methods of related to SqlParameter
+            </summary>
+        </member>
+        <member name="M:SystemManagement.Api.Utilities.SqlParameterExtensions.ToSqlParameters``1(``0)">
+            <summary>
+            Convert input to list of SqlParameters
+            </summary>
+            <param name="input">Source of conversion</param>
+            <typeparam name="TInput">Must be a input class</typeparam>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

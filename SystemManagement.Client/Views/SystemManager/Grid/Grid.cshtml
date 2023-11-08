@@ -1,0 +1,132 @@
+﻿@model SystemManagement.Shared.Models.Output.SystemManager.OutputGetAllSystemList[]
+
+@Html.DevExpress().GridView(settings =>
+{
+    settings.Name = "grid";
+    settings.CallbackRouteValues = new { Controller = "SystemManager", Action = "Grid" };
+    settings.ClientSideEvents.BeginCallback =
+        "motorsazanClient.systemManager.handleGridCallbackUrl";
+
+    settings.Width = Unit.Percentage(100);
+
+    settings.Settings.ShowFilterRow = false;
+    settings.Settings.ShowFilterRowMenu = false;
+    settings.SettingsBehavior.AllowFocusedRow = true;
+    settings.SettingsBehavior.AllowSelectByRowClick = true;
+    settings.SettingsBehavior.AllowSelectSingleRowOnly = true;
+    settings.SettingsDetail.AllowOnlyOneMasterRowExpanded = true;
+
+    settings.EnableRowsCache = true;
+
+    settings.KeyFieldName = "Id";
+    settings.Columns.Add(column =>
+    {
+        column.FieldName = "RowIndex";
+        column.Caption = "ردیف";
+        column.Width = Unit.Pixel(60);
+        column.UnboundType = DevExpress.Data.UnboundColumnType.Integer;
+        settings.CustomUnboundColumnData = (s, e) =>
+        {
+            if (e.Column.FieldName == "RowIndex")
+                e.Value = e.ListSourceRowIndex + 1;
+        };
+    });
+
+    settings.Columns.Add(column =>
+    {
+        column.FieldName = "SystemName";
+        column.Caption = "نام سیتسم";
+        column.Width = Unit.Percentage(20);
+    });
+    settings.Columns.Add(column =>
+    {
+        column.FieldName = "SystemCode";
+        column.Caption = "کد سیستم";
+        column.Width = Unit.Percentage(10);
+    });
+    settings.Columns.Add(column =>
+    {
+        column.FieldName = "IsActive";
+        column.Caption = "وضعیت ";
+        column.HeaderStyle.Wrap = DefaultBoolean.True;
+        column.CellStyle.Wrap = DefaultBoolean.True;
+        column.EditorProperties().ComboBox(cb =>
+        {
+            cb.Items.Add("فعال", true);
+            cb.Items.Add("غیرفعال", false);
+
+            cb.DropDownStyle = DropDownStyle.DropDown;
+        });
+
+    });
+    settings.CommandColumn.Visible = true;
+    settings.CommandColumn.ShowDeleteButton = false;
+    settings.CommandColumn.ShowEditButton = false;
+    settings.CommandColumn.ShowNewButton = false;
+    settings.CommandColumn.ShowNewButtonInHeader = false;
+    settings.CommandColumn.Caption = "عملیات";
+    settings.CommandColumn.HeaderStyle.HorizontalAlign = HorizontalAlign.Center;
+
+    settings.CommandColumn.ButtonRenderMode = GridCommandButtonRenderMode.Button;
+    settings.CommandColumn.VisibleIndex = 1000;
+    settings.ClientSideEvents.CustomButtonClick = "motorsazanClient.systemManager.girdCustomButtonClick";
+
+
+
+    var removeCustomButton = new GridViewCommandColumnCustomButton() { ID = "changeSystemStatusBtn", Text = "تغییر وضعیت" };
+    removeCustomButton.Styles.Style.CssClass = "app__form-grid-mini-btn app__form-grid-mini-btn--danger";
+    settings.CommandColumn.CustomButtons.Add(removeCustomButton);
+
+    var ChangeStatusCustomButton = new GridViewCommandColumnCustomButton() { ID = "addFormBTN", Text = "فرم های سیستم" };
+    ChangeStatusCustomButton.Styles.Style.CssClass = "app__form-grid-mini-btn app__form-grid-mini-btn--warning";
+    settings.CommandColumn.CustomButtons.Add(ChangeStatusCustomButton);
+
+    settings.CustomButtonInitialize = (sender, e) =>
+    {
+        var grid = sender as MVCxGridView;
+        var isActive = grid != null && (bool)grid.GetRowValues(e.VisibleIndex, "IsActive");
+        if ((bool)grid.GetRowValues(e.VisibleIndex, "IsActive"))
+        {
+            if (e.ButtonID == "changeSystemStatusBtn")
+            {
+                if (isActive == true)
+                {
+                    e.Text = "غیر فعال کردن";
+                }
+                else
+                    e.Text = "فعال کردن";
+
+            }
+        }
+    };
+
+    settings.SettingsDetail.ShowDetailRow = true;
+    settings.SettingsDetail.AllowOnlyOneMasterRowExpanded = true;
+
+
+
+
+    settings.SettingsExport.EnableClientSideExportAPI = true;
+    settings.SettingsExport.ExcelExportMode = DevExpress.Export.ExportType.WYSIWYG;
+    settings.Toolbars.Add(t =>
+    {
+        t.Items.Add(GridViewToolbarCommand.ExportToXlsx).Text = "خروجی اکسل";
+    });
+
+    settings.SettingsLoadingPanel.Text = "در حال دریافت اطلاعات";
+    settings.SettingsPager.Summary.Text = "صفحه‌ {0} از {1} - تعداد کل : {2}";
+    settings.SettingsPager.Summary.Position = PagerButtonPosition.Right;
+    settings.SettingsPager.AlwaysShowPager = false;
+    settings.SettingsPager.Mode = GridViewPagerMode.ShowPager;
+    settings.SettingsText.EmptyDataRow = "موردی یافت نشد";
+    settings.SettingsPager.PageSizeItemSettings.Visible = true;
+    settings.SettingsPager.PageSize = 25;
+    settings.SettingsPager.PageSizeItemSettings.Caption = "تعداد سطر :";
+    settings.SettingsPager.PageSizeItemSettings.Items = new string[] { "50", "100", "200", "500" };
+
+}).Bind(Model).GetHtml()
+
+
+
+
+

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="d019ac9b-2ab4-4d4e-b134-2d99f42fb677" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:2021/WebServices/App.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="App.xsd" MetadataType="Schema" ID="d6ca21c7-8de9-40af-b268-ad128170fac5" SourceId="1" SourceUrl="http://localhost:2021/WebServices/App.svc?xsd=xsd3" />
+    <MetadataFile FileName="App1.xsd" MetadataType="Schema" ID="a0289000-f994-409a-808e-a3d6b5ae310a" SourceId="1" SourceUrl="http://localhost:2021/WebServices/App.svc?xsd=xsd0" />
+    <MetadataFile FileName="App2.xsd" MetadataType="Schema" ID="1cd05ff7-689e-4d0a-a6ce-9a57d80adefa" SourceId="1" SourceUrl="http://localhost:2021/WebServices/App.svc?xsd=xsd2" />
+    <MetadataFile FileName="App.wsdl" MetadataType="Wsdl" ID="3bef5dd9-24c8-4549-ab5e-51cdf7b2a077" SourceId="1" SourceUrl="http://localhost:2021/WebServices/App.svc?wsdl" />
+    <MetadataFile FileName="App.disco" MetadataType="Disco" ID="cb52cd38-78dd-41fb-86d1-f53e1859e298" SourceId="1" SourceUrl="http://localhost:2021/WebServices/App.svc?disco" />
+    <MetadataFile FileName="App3.xsd" MetadataType="Schema" ID="475a96b5-7a46-4e70-b373-33aeacaf752b" SourceId="1" SourceUrl="http://localhost:2021/WebServices/App.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
