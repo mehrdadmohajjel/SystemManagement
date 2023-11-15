@@ -1,0 +1,31 @@
+﻿
+@model SystemManagement.Shared.Models.Output.SystemManager.OutputGetSystemFormsBySystemId[]
+
+@Html.DevExpress().ComboBox(
+    settings =>
+    {
+        settings.Name = "addFormSystemFormListCombo";
+        settings.CallbackRouteValues = new { Controller = "AssignFormToUser", Action = "GetSystemFormList" };
+        settings.Width = Unit.Percentage(100);
+        settings.Properties.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.None;
+        settings.Properties.NullText = "سیستم را انتخاب نمایید";
+        settings.SelectedIndex = 0;
+        settings.Properties.CallbackPageSize = 100;
+        settings.Properties.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
+        settings.Properties.IncrementalFilteringDelay = 200;
+        settings.Properties.DropDownWidth = Unit.Pixel(400);
+        settings.SettingsLoadingPanel.Text = "در حال دریافت اطلاعات";
+        settings.SelectedIndex = -1;
+        settings.ClientEnabled = true;
+        settings.Properties.ValueField = "Id";
+        settings.Properties.ValueType = typeof(long);
+        settings.Properties.Columns.Add("FormName", "عنوان ");
+        settings.Properties.Columns.Add("FormCode", "کد");
+        settings.Properties.ClientSideEvents.SelectedIndexChanged =
+            "motorsazanClient.assignFormToUser.handleAddFormGetSystemFormComboSelectedIndexChanged";
+        settings.Properties.ClientSideEvents.BeginCallback =
+            "motorsazanClient.assignFormToUser.handleAddFormGetSystemFormComboBeginCallback";
+
+
+
+    }).BindList(Model).GetHtml()

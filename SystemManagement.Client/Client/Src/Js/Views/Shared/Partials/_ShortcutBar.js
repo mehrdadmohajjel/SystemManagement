@@ -7,7 +7,7 @@
             {
                 icon: "icon__repair--white.svg",
                 name: "نگهداری و تعمیرات",
-                link: "https://erp-server:2039/Home/Index",
+                link: "https://localhost:2039/Home/Index",
                 category: "پرتال نگهداری و تعمیرات",
                 color: "danger",
                 include_jwt: true
@@ -15,7 +15,7 @@
             {
                 icon: "icon__cms--white.svg",
                 name: "درخواست خدمات رایانه‌ای",
-                link: "https://erp-server:2057/",
+                link: "https://localhost:2057/",
                 category: "پرتال فناوری اطلاعات",
                 color: "info",
                 include_jwt: false
@@ -23,7 +23,7 @@
             {
                 icon: "icon__gear--white.svg",
                 name: "آمار ماشینکاری",
-                link: "https://erp-server:2031/Home/Index",
+                link: "https://localhost:2031/Home/Index",
                 category: "پرتال تولید",
                 color: "success",
                 include_jwt: true
@@ -31,7 +31,7 @@
             {
                 icon: "icon__project--white.svg",
                 name: "برنامه ریزی ماشینکاری",
-                link: "https://erp-server:2027/Home/Index",
+                link: "https://localhost:2027/Home/Index",
                 category: "پرتال تولید",
                 color: "gray",
                 include_jwt: true
@@ -39,7 +39,7 @@
             {
                 icon: "icon__strategy--white.svg",
                 name: "تابلو هی جونکای مونتاژ",
-                link: "https://erp-server:2036/Home/Index",
+                link: "https://localhost:2036/Home/Index",
                 category: "پرتال تولید",
                 color: "rebeccapurple",
                 include_jwt: true
@@ -47,7 +47,7 @@
             {
                 icon: "icon__boss--white.svg",
                 name: "مدیریت جلسات",
-                link: "https://erp-server:2030/Home/Index",
+                link: "https://localhost:2030/Home/Index",
                 category: "عمومی",
                 color: "warning",
                 include_jwt: true
@@ -55,7 +55,7 @@
             {
                 icon: "icon__genealogy--white.svg",
                 name: "درخت محصول",
-                link: "https://erp-server:2043/Home/Index",
+                link: "https://localhost:2043/Home/Index",
                 category: "پرتال تولید",
                 color: "hotpink",
                 include_jwt: true

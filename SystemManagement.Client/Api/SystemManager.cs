@@ -1,5 +1,7 @@
 ﻿using System.Threading.Tasks;
+using SystemManagement.Shared.Models.Input.AssignFormToUser;
 using SystemManagement.Shared.Models.Input.SystemManager;
+using SystemManagement.Shared.Models.Output.AssignFormToUser;
 using SystemManagement.Shared.Models.Output.SystemManager;
 
 namespace SystemManagement.Client.Api
@@ -156,6 +158,21 @@ namespace SystemManagement.Client.Api
 
             return task.GetAwaiter().GetResult();
         }
-        
+
+        public static OutputGetUserAccessList[] GetUserAccessList(InputGetUserAccessList input)
+        {
+            var url = $"{BaseUrl}/SystemManager/";
+            const string methodName = nameof(GetFormEventByFormId);
+
+            var task = Task.Run(
+                async () =>
+                    await ApiConnector<OutputGetUserAccessList[]>.Post(
+                        url,
+                        methodName, parameters: input)
+            );
+
+            return task.GetAwaiter().GetResult();
+        }
+
     }
 }

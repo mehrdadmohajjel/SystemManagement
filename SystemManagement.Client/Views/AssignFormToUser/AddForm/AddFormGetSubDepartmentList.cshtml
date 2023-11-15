@@ -1,0 +1,29 @@
+﻿@model SystemManagement.Shared.Models.Output.AssignFormToUser.OutputGetSubDepartmentListByMainDepartmentId[]
+
+@Html.DevExpress().ComboBox(
+    settings =>
+    {
+        settings.Name = "addFormGetAllSubDepartmentCombo";
+        settings.CallbackRouteValues = new { Controller = "AssignFormToUser", Action = "AddFormGetDepartmentMachineList" };
+        settings.Width = Unit.Percentage(100);
+        settings.Properties.ValidationSettings.ErrorDisplayMode = ErrorDisplayMode.None;
+        settings.Properties.NullText = "واحد را انتخاب نمایید";
+        settings.SelectedIndex = 0;
+        settings.Properties.CallbackPageSize = 100;
+        settings.Properties.IncrementalFilteringMode = IncrementalFilteringMode.Contains;
+        settings.Properties.IncrementalFilteringDelay = 200;
+        settings.Properties.DropDownWidth = Unit.Pixel(400);
+        settings.SettingsLoadingPanel.Text = "در حال دریافت اطلاعات";
+        settings.SelectedIndex = -1;
+        settings.Properties.ValueField = "DepartmentId";
+        settings.Properties.ValueType = typeof(long);
+        settings.Properties.Columns.Add("Title", "عنوان ");
+        settings.Properties.Columns.Add("UnitCode", "کد");
+        settings.Properties.ClientSideEvents.SelectedIndexChanged =
+            "motorsazanClient.assignFormToUser.handleAddFormGetAllSubDepartmentComboSelectedIndexChanged";
+        settings.Properties.ClientSideEvents.BeginCallback =
+            "motorsazanClient.assignFormToUser.handleAddFormGetAllSubDepartmentComboBeginCallBack";
+
+
+
+    }).BindList(Model).GetHtml()

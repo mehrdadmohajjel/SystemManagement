@@ -4,6 +4,37 @@
         <name>SystemManagement.Api</name>
     </assembly>
     <members>
+        <member name="M:SystemManagement.Api.Controllers.AssignFormToUserController.AddUserAccessList(SystemManagement.Shared.Models.Input.AssignFormToUser.InputAddUserAccessList)">
+             <summary>
+            ثبت مجوز
+             </summary>
+             <param name="input"></param>
+             <returns></returns>
+        </member>
+        <member name="M:SystemManagement.Api.Controllers.AssignFormToUserController.GetAllMainDepartment">
+            <summary>
+              دریافت لیست امورها
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SystemManagement.Api.Controllers.AssignFormToUserController.GetSubDepartmentListByMainDepartmentId(SystemManagement.Shared.Models.Input.AssignFormToUser.InputGetSubDepartmentListByMainDepartmentId)">
+            <summary>
+               دریافت لسیت زیر دپارتمان ها بر اساس شناسه دپارتمان اصلی
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SystemManagement.Api.Controllers.AssignFormToUserController.GetEmployeeListByDepartmentId(SystemManagement.Shared.Models.Input.AssignFormToUser.InputGetEmployeeListByDepartmentId)">
+            <summary>
+               دریافت لسیت پرسنل دپارتمان
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SystemManagement.Api.Controllers.AssignFormToUserController.GetUserAccessList(SystemManagement.Shared.Models.Input.AssignFormToUser.InputGetUserAccessList)">
+            <summary>
+               دریافت لسیت پرسنل دپارتمان
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:SystemManagement.Api.Controllers.SampleController.AddSomething(SystemManagement.Shared.Models.Input.Sample.InputAddWithReturnMessage)">
             <summary>
             ثبت به همراه بررسی پیغام خطای اعتبارسنجی سمت پروسیجر

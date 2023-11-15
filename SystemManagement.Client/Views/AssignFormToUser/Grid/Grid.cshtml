@@ -1,0 +1,111 @@
+﻿
+@Html.DevExpress().GridView(settings =>
+{
+    settings.Name = "grid";
+    settings.CallbackRouteValues = new { Controller = "AssignFormToUser", Action = "Grid" };
+    settings.ClientSideEvents.BeginCallback =
+        "motorsazanClient.assignFormToUser.handleGridCallbackUrl";
+
+    settings.Width = Unit.Percentage(100);
+
+    settings.Settings.ShowFilterRow = false;
+    settings.Settings.ShowFilterRowMenu = false;
+    settings.SettingsBehavior.AllowFocusedRow = true;
+    settings.SettingsBehavior.AllowSelectByRowClick = true;
+    settings.SettingsBehavior.AllowSelectSingleRowOnly = true;
+    settings.SettingsDetail.AllowOnlyOneMasterRowExpanded = true;
+
+    settings.EnableRowsCache = true;
+
+    settings.KeyFieldName = "WorkOrderId";
+    settings.Columns.Add(column =>
+    {
+        column.FieldName = "RowIndex";
+        column.Caption = "ردیف";
+        column.Width = Unit.Pixel(60);
+        column.UnboundType = DevExpress.Data.UnboundColumnType.Integer;
+        settings.CustomUnboundColumnData = (s, e) =>
+        {
+            if (e.Column.FieldName == "RowIndex")
+                e.Value = e.ListSourceRowIndex + 1;
+        };
+    });
+
+    settings.Columns.Add(column =>
+    {
+        column.FieldName = "WorkOrderSerial";
+        column.Caption = "شماره دستورکار";
+    });
+
+    settings.Columns.Add(column =>
+    {
+        column.FieldName = "StatusName";
+        column.Caption = "وضعیت";
+    });
+
+    settings.Columns.Add(column =>
+    {
+        column.FieldName = "OldMachineCode";
+        column.Caption = "کد دستگاه";
+    });
+
+    settings.Columns.Add(column =>
+    {
+        column.FieldName = "StopTypeTitle";
+        column.Caption = "نوع توقف";
+    });
+    settings.Columns.Add(column =>
+    {
+        column.FieldName = "MaintenanceGroupName";
+        column.Caption = "گروه تعمیراتی";
+    });
+    settings.Columns.Add(column =>
+    {
+        column.FieldName = "WorkOrderTypeTitle";
+        column.Caption = "نوع دستورکار";
+    });
+    settings.Columns.Add(column =>
+    {
+        column.FieldName = "Description";
+        column.Caption = "شرح";
+    });
+
+    settings.Columns.Add(column =>
+    {
+        column.FieldName = "WorkOrderStatusTypeId";
+        column.EditCellStyle.CssClass = "class_hidden";
+        column.EditFormCaptionStyle.CssClass = "class_hidden";
+        column.HeaderStyle.CssClass = "class_hidden";
+        column.CellStyle.CssClass = "class_hidden";
+
+    });
+
+    settings.SettingsDetail.ShowDetailRow = true;
+    settings.SettingsDetail.AllowOnlyOneMasterRowExpanded = true;
+    settings.SetDetailRowTemplateContent(row =>
+    {
+        var WorkOrderID = Convert.ToInt64(DataBinder.Eval(row.DataItem, "workOrderId"));
+
+        Html.RenderAction("DetailRow", "productiveWorkOrder", new { workOrderId = WorkOrderID });
+    });
+
+
+    settings.SettingsExport.EnableClientSideExportAPI = true;
+    settings.SettingsExport.ExcelExportMode = DevExpress.Export.ExportType.WYSIWYG;
+    settings.Toolbars.Add(t =>
+    {
+        t.Items.Add(GridViewToolbarCommand.ExportToXlsx).Text = "خروجی اکسل";
+    });
+
+    settings.SettingsLoadingPanel.Text = "در حال دریافت اطلاعات";
+    settings.SettingsPager.Summary.Text = "صفحه‌ {0} از {1} - تعداد کل : {2}";
+    settings.SettingsPager.Summary.Position = PagerButtonPosition.Right;
+    settings.SettingsPager.AlwaysShowPager = false;
+    settings.SettingsPager.Mode = GridViewPagerMode.ShowPager;
+    settings.SettingsText.EmptyDataRow = "موردی یافت نشد";
+    settings.SettingsPager.PageSizeItemSettings.Visible = true;
+    settings.SettingsPager.PageSize = 25;
+    settings.SettingsPager.PageSizeItemSettings.Caption = "تعداد سطر :";
+    settings.SettingsPager.PageSizeItemSettings.Items = new string[] { "50", "100", "200", "500" };
+
+}).Bind(Model).GetHtml()

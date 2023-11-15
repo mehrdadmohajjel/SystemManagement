@@ -1,0 +1,40 @@
+﻿@{
+    ViewBag.Title = "مجوزدهی";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section head
+{
+    <link href="~/DX.ashx?cssfile=~/Views/AssignFormToUser/Css/Index.min.css" rel="Stylesheet" />
+}
+@section scripts
+{
+    <script src="~/DX.ashx?jsfile=~/Views/AssignFormToUser/JS/Index.js"></script>
+}
+
+<div class="row">
+    <div class="col-xs-12 col-md-3">
+        <section class="app__section">
+            <div class="app__section__header">
+                مجوزدهی
+            </div>
+            <div class="app__section__body">
+                @{ Html.RenderPartial("~/Views/AssignFormToUser/AddForm/AddForm.cshtml"); }
+            </div>
+        </section>
+    </div>
+    <div class="col-xs-12 col-md-9">
+        <section class="app__section">
+            <div class="app__section__header">
+                لیست
+                @{ Html.RenderPartial("~/Views/Shared/Partials/_AppSectionSettings.cshtml"); }
+            </div>
+            <div class="app__section__body">
+                @*@{ Html.RenderPartial("~/Views/AssignFormToUser/FilterForm/FilterForm.cshtml"); }*@
+                
+                <form class="app__grid-wrapper" id="ProductiveWorkOrderSourceGirdParent">
+                    @{Html.RenderAction("Grid", "AssignFormToUser");}
+                </form>
+            </div>
+        </section>
+    </div>
+</div>

@@ -48,7 +48,7 @@ namespace SystemManagement.Shared.Utilities
         {
             try
             {
-                var baseURL = "http://erp-server:2021/api/GetUserInfo";
+                var baseURL = "http://localhost:2021/api/GetUserInfo";
                 var server = new WebApiConsumer<UserInfo>(baseURL);
                 var response = server.Get("UserId=" + userId);
                 var successStatus = "1";
@@ -75,7 +75,7 @@ namespace SystemManagement.Shared.Utilities
         {
             try
             {
-                var baseUrl = "http://erp-server/api/CheckEventAccess";
+                var baseUrl = "http://localhost/api/CheckEventAccess";
                 var server = new WebApiConsumer<CheckEventAccess>(baseUrl);
                 var url = $"UserID={userId}&FormCode={formCode}&SystemCode={systemCode}&EventCode={eventCode}";
                 var response = server.Get(url);
@@ -98,7 +98,7 @@ namespace SystemManagement.Shared.Utilities
         {
             try
             {
-                const string baseUrl = "http://erp-server/api/CheckFormAccess";
+                const string baseUrl = "http://localhost/api/CheckFormAccess";
                 var server = new WebApiConsumer<CheckFormAccess>(baseUrl);
                 var url = $"UserID={userId}&FormCode={formCode}&SystemCode={systemCode}";
                 var response = server.Get(url);

@@ -81,6 +81,10 @@
     <Compile Include="Models\Base\Validation.cs" />
     <Compile Include="Models\Base\WebServiceResult.cs" />
     <Compile Include="Models\DomainModels\Tbl_User.cs" />
+    <Compile Include="Models\Input\AssignFormToUser\InputAddUserAccessList.cs" />
+    <Compile Include="Models\Input\AssignFormToUser\InputGetSubDepartmentListByMainDepartmentId.cs" />
+    <Compile Include="Models\Input\AssignFormToUser\InputGetEmployeeListByDepartmentId.cs" />
+    <Compile Include="Models\Input\AssignFormToUser\InputGetUserAccessList.cs" />
     <Compile Include="Models\Input\Sample\InputAddWithReturnMessage.cs" />
     <Compile Include="Models\Input\Sample\InputGetByInput.cs" />
     <Compile Include="Models\Input\SystemManager\InputAddNewSystem.cs" />
@@ -92,6 +96,10 @@
     <Compile Include="Models\Input\SystemManager\InputEditSystem.cs" />
     <Compile Include="Models\Input\SystemManager\InputGetFormEventByFormId.cs" />
     <Compile Include="Models\Input\SystemManager\InputGetSystemFormsBySystemId.cs" />
+    <Compile Include="Models\Output\AssignFormToUser\OutputGetAllMainDepartment.cs" />
+    <Compile Include="Models\Output\AssignFormToUser\OutputGetEmployeeListByDepartmentId.cs" />
+    <Compile Include="Models\Output\AssignFormToUser\OutputGetSubDepartmentListByMainDepartmentId.cs" />
+    <Compile Include="Models\Output\AssignFormToUser\OutputGetUserAccessList.cs" />
     <Compile Include="Models\Output\Sample\OutputGetByInput.cs" />
     <Compile Include="Models\Output\Sample\OutputGetAll.cs" />
     <Compile Include="Models\Output\SystemManager\OutputGetAllSystemList.cs" />

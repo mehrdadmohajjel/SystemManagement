@@ -17,7 +17,7 @@ namespace SystemManagement.Client.Filters
                 var tokenInCookie = filterContext.HttpContext.Request.Cookies.Get("MohajjelJsonWebToken")?.Value;
                 if (string.IsNullOrEmpty(tokenInHeader) && string.IsNullOrEmpty(tokenInCookie))
                 {
-                    filterContext.Result = new RedirectResult("http://erp-server");
+                    filterContext.Result = new RedirectResult("http://localhost");
                 }
                 else
                 {

@@ -277,6 +277,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Client\Images\icon__production--white.svg" />
+    <Content Include="Views\AssignFormToUser\Css\Index.css" />
+    <Content Include="Views\AssignFormToUser\Css\Index.min.css" />
+    <Content Include="Views\AssignFormToUser\Js\Index.js" />
     <Content Include="Views\SystemManager\Css\Index.css" />
     <Content Include="Views\SystemManager\Css\Index.min.css" />
     <Content Include="Views\SystemManager\Js\Index.js" />
@@ -350,6 +353,19 @@
     <Content Include="Views\SystemManager\Grid\FormManagement\FormGird.cshtml" />
     <Content Include="Views\SystemManager\Grid\EventManagement\AddNewEventModal.cshtml" />
     <Content Include="Views\SystemManager\Grid\EventManagement\EventGird.cshtml" />
+    <Content Include="Views\AssignFormToUser\AddForm\AddForm.cshtml" />
+    <Content Include="Views\AssignFormToUser\AddForm\AddFormGetSubDepartmentList.cshtml" />
+    <Content Include="Views\AssignFormToUser\AddForm\AddFormGetMainDepartmentList.cshtml" />
+    <Content Include="Views\AssignFormToUser\Css\Index.scss" />
+    <Content Include="Views\AssignFormToUser\FilterForm\FilterForm.cshtml" />
+    <Content Include="Views\AssignFormToUser\FilterForm\FilterFormDateTypeCombo.cshtml" />
+    <Content Include="Views\AssignFormToUser\FilterForm\FilterFormStatusTypeCombo.cshtml" />
+    <Content Include="Views\AssignFormToUser\Grid\Grid.cshtml" />
+    <Content Include="Views\AssignFormToUser\Index.cshtml" />
+    <Content Include="Views\AssignFormToUser\AddForm\AddFormDepartmentEmployeeCheckComboBox.cshtml" />
+    <Content Include="Views\AssignFormToUser\AddForm\AddFormGetAllSystemList.cshtml" />
+    <Content Include="Views\AssignFormToUser\AddForm\AddFormGetSystemFormList.cshtml" />
+    <Content Include="Views\AssignFormToUser\AddForm\AddFormGetFormEventList.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -360,12 +376,14 @@
   <ItemGroup>
     <Compile Include="Api\ApiConnector.cs" />
     <Compile Include="Api\ApiList.cs" />
+    <Compile Include="Api\AssignFormToUser.cs" />
     <Compile Include="Api\SystemManager.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\JsonResultFilter.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\UnhandledExceptionFilter.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AssignFormToUserController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SystemManagerController.cs" />

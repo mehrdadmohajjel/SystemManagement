@@ -224,7 +224,7 @@ namespace SystemManagement.Client.Controllers
             ViewBag.JWT = GetUserToken();
             ViewBag.CanSaveToken = true;
 
-            var avatarBaseUrl = "http://erp-server/Images/PersonalPic/";
+            var avatarBaseUrl = "http://localhost/Images/PersonalPic/";
             ViewBag.UserAvatarUrl = avatarBaseUrl + userInfo.EID + ".jpg";
         }
 

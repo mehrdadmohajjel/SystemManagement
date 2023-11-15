@@ -1,0 +1,122 @@
+﻿<div class="row">
+    <div class="col-xs-12 col-md-12 col-lg-12">
+        <div class="app__form-item">
+            <label class="app__form-label">
+                انتخاب امور
+            </label>
+            <div >
+                @{
+                    Html.RenderAction("GetMainDepartmentList", "AssignFormToUser");
+
+                }
+            </div>
+            <div class="app__form-error app__hide" id="addFormMainDepartmentComboError">
+                امور  انتخاب نشده است
+            </div>
+
+        </div>
+    </div>
+    <div class="col-xs-12 col-md-12 col-lg-12">
+        <div class="app__form-item">
+            <label class="app__form-label">
+                انتخاب واحد
+            </label>
+            <div id="addFormSubDepartmentComboParent">
+                @{
+                    Html.RenderAction("GetSubDepartmentList", "AssignFormToUser");
+
+                }
+            </div>
+            <div class="app__form-error app__hide" id="addFormSubDepartmentComboError">
+                واحد انتخاب نشده است
+            </div>
+
+        </div>
+    </div>
+    <div class="col-xs-12 col-md-12 col-lg-12" >
+        <div class="app__form-item">
+            <label class="app__form-label">
+                انتخاب پرسنل
+            </label>
+            <div id="addFormDepartmentEmployeeComboParent">
+                @{
+                    Html.RenderAction("GetDepartmentEmployeeCheckComboBox", "AssignFormToUser");
+                }
+            </div>
+            <div class="app__hide" id="addFormDepartmentEmployeeCombInfo">
+            </div>
+            <div class="app__form-error app__hide" id="addFormDepartmentEmployeeComboError">
+                پرسنلی انتخاب نشده است
+            </div>
+
+        </div>
+    </div> 
+    <div class="col-xs-12 col-md-12 col-lg-12">
+        <div class="app__form-item">
+            <label class="app__form-label">
+                انتخاب سیستم
+            </label>
+            <div id="addFormSystemListComboParent">
+                @{
+                    Html.RenderAction("GetAllSystemList", "AssignFormToUser");
+
+                }
+            </div>
+            <div class="app__form-error app__hide" id="addFormSystemListComboError">
+                سیستم انتخاب نشده است
+            </div>
+
+        </div>
+    </div>
+    <div class="col-xs-12 col-md-12 col-lg-12">
+        <div class="app__form-item">
+            <label class="app__form-label">
+                انتخاب فرم
+            </label>
+            <div id="addFormSystemFormListComboParent">
+                @{
+                    Html.RenderAction("GetSystemFormList", "AssignFormToUser");
+
+                }
+            </div>
+            <div class="app__form-error app__hide" id="addFormSystemFormListComboError">
+                فرم انتخاب نشده است
+            </div>
+
+        </div>
+    </div>
+    <div class="col-xs-12 col-md-12 col-lg-12">
+        <div class="app__form-item">
+            <label class="app__form-label">
+                انتخاب رویداد
+            </label>
+            <div id="addFormEventListCheckComboBoxParent">
+                @{
+                    Html.RenderAction("GetFormEventList", "AssignFormToUser");
+                }
+            </div>
+            <div class="app__hide" id="addFormEventListCheckComboBoxInfo">
+            </div>
+            <div class="app__form-error app__hide" id="addFormEventListCheckComboBoxError">
+                رویدادی انتخاب نشده است
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="col-xs-12 col-md-12 col-lg-12 filter-form__action-wrapper">
+        @Html.DevExpress().Button(settings =>
+        {
+            settings.Name = "addSaveBtn";
+            settings.Text = "ثبت";
+            settings.UseSubmitBehavior = false;
+            settings.EnableClientSideAPI = true;
+            settings.Styles.CssPostfix = "add-form__btn";
+            settings.Width = Unit.Percentage(100);
+            settings.ClientSideEvents.Click =
+                "motorsazanClient.assignFormToUser.addAccess";
+        }).GetHtml()
+    </div>
+
+</div>
